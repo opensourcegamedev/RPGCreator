@@ -2,7 +2,7 @@ group 'com.jukusoft'
 version '1.0.0-SNAPSHOT'
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '3.3'
+  gradleVersion = '3.5'
   distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
@@ -10,8 +10,25 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+ext {
+    gdxVersion = "1.9.6"
+    log4jVersion = '1.2.17'
+    ini4jVersion = '0.5.4'
+    jsonVersion = '20160810'
+
+    //mainClassName = "com.jukusoft.libgdx.rpg.desktop.DesktopLauncher"
+}
+
 repositories {
+    mavenLocal()
+
     mavenCentral()
+}
+
+//dont cache dependencies, always download snapshot dependencies
+configurations.all {
+    // check for updates every build
+    ResolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 dependencies {
