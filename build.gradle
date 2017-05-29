@@ -10,13 +10,17 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
-ext {
-    gdxVersion = "1.9.6"
-    log4jVersion = '1.2.17'
-    ini4jVersion = '0.5.4'
-    jsonVersion = '20160810'
+allprojects {
+    ext {
+        gdxVersion = "1.9.6"
+        log4jVersion = '1.2.17'
+        ini4jVersion = '0.5.4'
+        jsonVersion = '20160810'
+        jUnitVersion = '4.12'
+        apacheCommonsLangVersion = '3.5'
 
-    //mainClassName = "com.jukusoft.libgdx.rpg.desktop.DesktopLauncher"
+        //mainClassName = "com.jukusoft.libgdx.rpg.desktop.DesktopLauncher"
+    }
 }
 
 repositories {
@@ -28,7 +32,7 @@ repositories {
 //dont cache dependencies, always download snapshot dependencies
 configurations.all {
     // check for updates every build
-    ResolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    //ResolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 dependencies {
