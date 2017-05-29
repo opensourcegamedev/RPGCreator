@@ -1,5 +1,6 @@
 package com.jukusoft.rpgcreator.editor;
 
+import com.jukusoft.rpgcreator.editor.screen.IntroScreen;
 import com.jukusoft.rpgcreator.engine.game.ScreenBasedGame;
 import com.jukusoft.rpgcreator.engine.screen.IScreen;
 import com.jukusoft.rpgcreator.engine.screen.ScreenManager;
@@ -15,7 +16,11 @@ public class Editor extends ScreenBasedGame {
 
     @Override
     protected void onCreateScreens(ScreenManager<IScreen> screenManager) {
-        //
+        //create and add screens
+        screenManager.addScreen("intro", new IntroScreen());
+
+        //push screens
+        screenManager.push("intro");
     }
 
 }
