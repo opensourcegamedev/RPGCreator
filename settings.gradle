@@ -1,4 +1,5 @@
 rootProject.name = 'rpg-creator'
 include 'engine'
 include 'editor'
+include 'editor-desktop'
 
