@@ -18,7 +18,7 @@ public class IntroScreen extends BaseScreen {
 
     @Override
     public void update(ScreenBasedGame game, GameTime time) {
-
+        //
     }
 
     @Override
