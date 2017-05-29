@@ -1,9 +1,8 @@
-package com.jukusoft.rpgcreator.editor.screen;
+package com.jukusoft.rpgcreator.engine.screen.impl;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.jukusoft.rpgcreator.engine.game.ScreenBasedGame;
-import com.jukusoft.rpgcreator.engine.screen.impl.BaseScreen;
 import com.jukusoft.rpgcreator.engine.time.GameTime;
 
 /**

@@ -1,6 +1,6 @@
 package com.jukusoft.rpgcreator.editor;
 
-import com.jukusoft.rpgcreator.editor.screen.IntroScreen;
+import com.jukusoft.rpgcreator.engine.screen.impl.IntroScreen;
 import com.jukusoft.rpgcreator.engine.game.ScreenBasedGame;
 import com.jukusoft.rpgcreator.engine.screen.IScreen;
 import com.jukusoft.rpgcreator.engine.screen.ScreenManager;
