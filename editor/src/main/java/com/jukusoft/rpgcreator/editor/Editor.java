@@ -1,5 +1,6 @@
 package com.jukusoft.rpgcreator.editor;
 
+import com.badlogic.gdx.Gdx;
 import com.jukusoft.rpgcreator.engine.screen.impl.IntroScreen;
 import com.jukusoft.rpgcreator.engine.game.ScreenBasedGame;
 import com.jukusoft.rpgcreator.engine.screen.IScreen;
@@ -20,7 +21,7 @@ public class Editor extends ScreenBasedGame {
         screenManager.addScreen("intro", new IntroScreen());
 
         //push screens
-        screenManager.push("intro");
+        //screenManager.push("intro");
     }
 
 }

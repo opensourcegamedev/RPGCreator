@@ -20,6 +20,10 @@ public class StartDialog extends FXMLWindow {
             }
         });
 
+        //set window position to center and focus window
+        this.stage.centerOnScreen();
+        this.stage.requestFocus();
+
         this.stage.show();
     }
 
