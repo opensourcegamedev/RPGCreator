@@ -29,15 +29,15 @@
         </rowConstraints>
          <children>
             <Label text="Project Title:" />
-            <TextField style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" />
+            <TextField fx:id="projectTitleTextField" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" />
             <Label layoutX="10.0" layoutY="39.0" text="Project Path:" GridPane.rowIndex="1" />
             <Label layoutX="10.0" layoutY="114.0" text="Include example assets:" GridPane.rowIndex="4" />
             <Label layoutX="10.0" layoutY="114.0" text="Server IP:" GridPane.rowIndex="2" />
-            <TextField layoutX="295.0" layoutY="34.0" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="serverIPTextField" layoutX="295.0" layoutY="34.0" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label layoutX="10.0" layoutY="151.0" text="Server Port:" GridPane.rowIndex="3" />
             <TextField layoutX="295.0" layoutY="146.0" maxWidth="50.0" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1; -fx-border-width: 2px;" text="Create Game" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextField layoutX="295.0" layoutY="22.0" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="projectPathTextField" layoutX="295.0" layoutY="22.0" style="-fx-background-color: #c4cfed; -fx-border-color: #1b52f1;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <CheckBox mnemonicParsing="false" text="Include Example Assets" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
