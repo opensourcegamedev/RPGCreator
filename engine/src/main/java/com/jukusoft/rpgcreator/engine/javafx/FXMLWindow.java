@@ -22,7 +22,7 @@ public class FXMLWindow {
     //root AnchorPane
     protected Pane rootPane = null;
 
-    public FXMLWindow (String title, int width, int height, String fxmlPath) {
+    public FXMLWindow (String title, int width, int height, String fxmlPath, FXMLController controller) {
         //create new stage
         this.stage = new Stage();
 
@@ -35,7 +35,14 @@ public class FXMLWindow {
 
         // load fxml
         try {
-            rootPane = FXMLLoader.load(new File(fxmlPath).toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(new File(fxmlPath).toURI().toURL());
+
+            //set controller
+            if (controller != null) {
+                loader.setController(controller);
+            }
+
+            rootPane = loader.load();//FXMLLoader.load(new File(fxmlPath).toURI().toURL());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
@@ -49,6 +56,10 @@ public class FXMLWindow {
 
         //show window
         stage.show();
+    }
+
+    public FXMLWindow (String title, int width, int height, String fxmlPath) {
+        this(title, width, height, fxmlPath, null);
     }
 
     public void setVisible (boolean visible) {
