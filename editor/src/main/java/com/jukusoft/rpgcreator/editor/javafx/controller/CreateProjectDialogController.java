@@ -51,6 +51,9 @@ public class CreateProjectDialogController implements FXMLController, Initializa
     public void init(Stage stage, Scene scene, Pane pane) {
         projectPathTextField.setText(getBasePath());
 
+        //disable resize window
+        stage.setResizable(false);
+
         createGameButton.setOnMouseEntered((MouseEvent event) -> {
             //check, if form is valide
             if (validate()) {
