@@ -3,7 +3,9 @@ package com.jukusoft.rpgcreator.editor.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.jukusoft.rpgcreator.editor.Editor;
+import com.jukusoft.rpgcreator.editor.javafx.JavaFXApplication;
 import com.jukusoft.rpgcreator.engine.utils.FileUtils;
+import javafx.application.Application;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -19,6 +21,12 @@ public class DesktopLauncher {
      * @param args Unused argument so far.
      */
     public static void main (String[] args) {
+        Thread thread = new Thread (() -> {
+            //create JavaFX window
+            Application.launch(JavaFXApplication.class, args);
+        });
+        thread.start();
+
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "RPG Creator - Editor";
         config.height = 720;

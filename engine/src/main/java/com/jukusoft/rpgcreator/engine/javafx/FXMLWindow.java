@@ -16,6 +16,9 @@ public class FXMLWindow {
     //JavaFX stage means an window
     protected Stage stage = null;
 
+    //JavaFX scene
+    protected Scene scene = null;
+
     //root AnchorPane
     protected Pane rootPane = null;
 
@@ -31,16 +34,15 @@ public class FXMLWindow {
         stage.setHeight(height);
 
         // load fxml
-        Pane pane = null;
         try {
-            pane = FXMLLoader.load(new File(fxmlPath).toURI().toURL());
+            rootPane = FXMLLoader.load(new File(fxmlPath).toURI().toURL());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
         }
 
         //add scene
-        Scene scene = new Scene(pane);
+        this.scene = new Scene(this.rootPane);
 
         //set scene
         stage.setScene(scene);
