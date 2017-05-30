@@ -47,8 +47,12 @@ public class CreateProjectDialogController implements FXMLController, Initializa
     @FXML
     protected Button createGameButton;
 
+    protected Stage stage = null;
+
     @Override
     public void init(Stage stage, Scene scene, Pane pane) {
+        this.stage = stage;
+
         projectPathTextField.setText(getBasePath());
 
         //disable resize window
@@ -109,7 +113,19 @@ public class CreateProjectDialogController implements FXMLController, Initializa
     * create new project
     */
     protected void create () {
-        //
+        //get path
+        String path = projectPathTextField.getText();
+
+        if (new File(path).exists()) {
+            //path already exists
+            this.projectPathTextField.setStyle(CSS_FAILED_STYLE);
+
+            return;
+        }
+
+        stage.hide();
+
+        //TODO: open new window
     }
 
     protected void generateAndSetProjectPath() {
