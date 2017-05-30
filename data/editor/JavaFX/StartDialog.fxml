@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
@@ -13,21 +14,28 @@
          <menus>
             <Menu mnemonicParsing="false" text="File">
               <items>
-                <MenuItem mnemonicParsing="false" text="Create Project" />
-                  <MenuItem mnemonicParsing="false" text="Load Project" />
+                <MenuItem fx:id="createProjectMenu" mnemonicParsing="false" text="Create Project" />
+                  <MenuItem fx:id="loadProjectMenu" mnemonicParsing="false" text="Load Project" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Close Application" />
+                  <MenuItem fx:id="closeApplicationMenu" mnemonicParsing="false" text="Close Application" />
               </items>
             </Menu>
          </menus>
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../common/logo/icon_transparency_border.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="426.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../common/logo/rpgcreator_logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="createProjectButton" layoutX="114.0" layoutY="147.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="455.0" style="-fx-background-color: #98aeec; -fx-border-color: #1b52f1;" stylesheets="@style.css" text="Create new project" />
+            <Button fx:id="loadProjectButton" layoutX="114.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="455.0" style="-fx-background-color: #98aeec; -fx-border-color: #1b52f1;" text="Load project" />
       </children>
     </AnchorPane>
   </children>
