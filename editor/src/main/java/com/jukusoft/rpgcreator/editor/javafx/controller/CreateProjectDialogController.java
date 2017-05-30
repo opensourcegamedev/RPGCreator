@@ -48,6 +48,9 @@ public class CreateProjectDialogController implements FXMLController, Initializa
     @FXML
     protected Button createGameButton;
 
+    @FXML
+    protected Button choosePathButton;
+
     protected Stage stage = null;
 
     @Override
@@ -83,6 +86,10 @@ public class CreateProjectDialogController implements FXMLController, Initializa
         });
 
         serverPortTextField.setText(DEFAULT_PORT + "");
+
+        this.choosePathButton.setOnAction((ActionEvent event) -> {
+            System.out.println("not supported yet.");
+        });
     }
 
     @Override
