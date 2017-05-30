@@ -54,6 +54,11 @@ public class FXMLWindow {
         //set scene
         stage.setScene(scene);
 
+        //initialize controller
+        if (controller != null) {
+            controller.init(stage, scene, rootPane);
+        }
+
         //show window
         stage.show();
     }
