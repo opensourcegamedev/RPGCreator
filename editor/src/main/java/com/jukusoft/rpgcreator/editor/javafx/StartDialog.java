@@ -19,6 +19,8 @@ public class StartDialog extends FXMLWindow {
                 System.exit(0);
             }
         });
+
+        this.stage.show();
     }
 
 }

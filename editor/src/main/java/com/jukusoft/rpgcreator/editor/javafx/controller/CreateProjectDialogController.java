@@ -1,5 +1,6 @@
 package com.jukusoft.rpgcreator.editor.javafx.controller;
 
+import com.jukusoft.rpgcreator.editor.javafx.CreateProjectProgressDialog;
 import com.jukusoft.rpgcreator.engine.javafx.FXMLController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -58,11 +59,16 @@ public class CreateProjectDialogController implements FXMLController, Initializa
         //disable resize window
         stage.setResizable(false);
 
-        createGameButton.setOnMouseEntered((MouseEvent event) -> {
+        createGameButton.setOnAction((ActionEvent event) -> {
             //check, if form is valide
             if (validate()) {
                 //create project
-                create();
+                try {
+                    create();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.exit(1);
+                }
             }
         });
 
@@ -112,9 +118,17 @@ public class CreateProjectDialogController implements FXMLController, Initializa
     /**
     * create new project
     */
-    protected void create () {
+    protected void create () throws Exception {
+        //get title
+        String title = projectTitleTextField.getText();
+
         //get path
         String path = projectPathTextField.getText();
+
+        String ip = serverIPTextField.getText();
+        int port = Integer.parseInt(serverPortTextField.getText());
+
+        boolean includeAssets = this.includeAssetsCheckBox.isSelected();
 
         if (new File(path).exists()) {
             //path already exists
@@ -124,6 +138,9 @@ public class CreateProjectDialogController implements FXMLController, Initializa
         }
 
         stage.hide();
+
+        System.out.println("open create project progress window.");
+        CreateProjectProgressDialog dialog = new CreateProjectProgressDialog(title, path, ip, port, includeAssets);
 
         //TODO: open new window
     }

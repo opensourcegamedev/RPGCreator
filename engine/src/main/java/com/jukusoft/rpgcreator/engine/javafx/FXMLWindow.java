@@ -60,7 +60,7 @@ public class FXMLWindow {
         }
 
         //show window
-        stage.show();
+        //stage.show();
     }
 
     public FXMLWindow (String title, int width, int height, String fxmlPath) {

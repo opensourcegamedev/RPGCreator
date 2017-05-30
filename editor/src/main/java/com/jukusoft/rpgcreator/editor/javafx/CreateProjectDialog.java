@@ -21,6 +21,8 @@ public class CreateProjectDialog extends FXMLWindow {
                 System.exit(0);
             }
         });
+
+        this.stage.show();
     }
 
 }
