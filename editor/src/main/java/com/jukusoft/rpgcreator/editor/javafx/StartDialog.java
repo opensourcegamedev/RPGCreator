@@ -24,6 +24,7 @@ public class StartDialog extends FXMLWindow {
         this.stage.centerOnScreen();
         this.stage.requestFocus();
 
+        //set window visible
         this.stage.show();
     }
 
