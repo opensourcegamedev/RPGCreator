@@ -13,6 +13,7 @@ public class StartDialog extends FXMLWindow {
     public StartDialog() {
         super("RPG Creater - by JuKuSoft.com", 680, 450, "./data/editor/JavaFX/StartDialog.fxml", new StartDialogController());
 
+        //add handler which will be executed, if user closes window
         this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
