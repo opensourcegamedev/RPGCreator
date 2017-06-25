@@ -88,6 +88,9 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
         return this.event;
     }
 
+    /**
+    * get data as json string
+    */
     public String getData () {
         return this.data;
     }
