@@ -2,6 +2,7 @@ package com.jukusoft.rpgcreator.editor.network;
 
 import com.jukusoft.rpgcreator.editor.network.impl.NetworkClient;
 import com.jukusoft.rpgcreator.editor.network.message.ManCenterMessage;
+import com.jukusoft.rpgcreator.editor.network.message.handler.DistributedMessageHandler;
 import com.jukusoft.rpgcreator.engine.network.AsyncResult;
 import com.jukusoft.rpgcreator.engine.network.Handler;
 
@@ -27,6 +28,11 @@ public interface ManCenterClient {
      * @param handler handler which will be executed, if operation was executed
     */
     public void login (String user, String password, Handler<AsyncResult<String>> handler);
+
+    /**
+    * get distributed message handler to
+    */
+    public DistributedMessageHandler getDistributedMessageHandler ();
 
     /**
      * check, if client is connected
