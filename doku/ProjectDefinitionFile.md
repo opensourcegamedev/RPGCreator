@@ -10,3 +10,4 @@ You can find the .rcp file in the root directory of your game project.
   - server information (Server IP & Port)
   - maybe saved username
   - created timestamp
+  - RPG Creator Editor Version
