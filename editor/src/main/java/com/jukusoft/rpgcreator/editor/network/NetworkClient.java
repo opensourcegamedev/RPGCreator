@@ -1,4 +1,4 @@
-package com.jukusoft.rpgcreator.editor.network.impl;
+package com.jukusoft.rpgcreator.editor.network;
 
 import com.jukusoft.rpgcreator.editor.network.message.MessageReceiver;
 import com.jukusoft.rpgcreator.engine.network.AsyncResult;

@@ -1,7 +1,5 @@
 package com.jukusoft.rpgcreator.editor.network;
 
-import com.jukusoft.rpgcreator.editor.network.impl.NetworkClient;
-import com.jukusoft.rpgcreator.editor.network.message.ManCenterMessage;
 import com.jukusoft.rpgcreator.editor.network.message.custom.LoginResultMessage;
 import com.jukusoft.rpgcreator.editor.network.message.handler.DistributedMessageHandler;
 import com.jukusoft.rpgcreator.engine.network.AsyncResult;
