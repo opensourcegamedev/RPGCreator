@@ -1,4 +1,4 @@
-package com.jukusoft.rpgcreator.editor.network.message;
+package com.jukusoft.rpgcreator.editor.network;
 
 /**
  * Created by Justin on 25.06.2017.

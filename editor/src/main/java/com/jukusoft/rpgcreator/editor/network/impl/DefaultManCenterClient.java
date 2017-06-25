@@ -1,11 +1,13 @@
 package com.jukusoft.rpgcreator.editor.network.impl;
 
 import com.jukusoft.rpgcreator.editor.network.ManCenterClient;
-import com.jukusoft.rpgcreator.editor.network.message.NetworkReceiveEvents;
+import com.jukusoft.rpgcreator.editor.network.NetworkReceiveEvents;
+import com.jukusoft.rpgcreator.editor.network.message.custom.LoginResultMessage;
 import com.jukusoft.rpgcreator.editor.network.message.factory.LoginMessageFactory;
 import com.jukusoft.rpgcreator.editor.network.message.handler.DistributedMessageHandler;
 import com.jukusoft.rpgcreator.engine.network.AsyncResult;
 import com.jukusoft.rpgcreator.engine.network.Handler;
+import com.jukusoft.rpgcreator.engine.network.impl.WritableAsyncResult;
 
 /**
  * Created by Justin on 25.06.2017.
@@ -25,7 +27,7 @@ public class DefaultManCenterClient extends VertxClient implements ManCenterClie
     }
 
     @Override
-    public void login(String user, String password, Handler<AsyncResult<String>> handler) {
+    public void login(String user, String password, Handler<AsyncResult<LoginResultMessage>> handler) {
         if (!isConnected()) {
             throw new IllegalStateException("client isnt connected to ManCenter server, so client cannot login.");
         }
@@ -36,7 +38,14 @@ public class DefaultManCenterClient extends VertxClient implements ManCenterClie
 
         //register ack message handler
         distributedMessageHandler.addHandler(NetworkReceiveEvents.LOGIN, (client, message) -> {
-            //TODO: parse message
+            //parse message
+            LoginResultMessage resMsg = LoginResultMessage.create(message);
+
+            if (!resMsg.succeeded()) {
+                handler.handle(new WritableAsyncResult<LoginResultMessage>(resMsg.cause()));
+            } else {
+                handler.handle(new WritableAsyncResult<LoginResultMessage>(resMsg, true));
+            }
         });
 
         //send login message

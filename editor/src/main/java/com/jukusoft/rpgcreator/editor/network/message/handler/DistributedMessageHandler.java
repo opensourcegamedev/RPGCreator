@@ -3,7 +3,7 @@ package com.jukusoft.rpgcreator.editor.network.message.handler;
 import com.jukusoft.rpgcreator.editor.network.ManCenterClient;
 import com.jukusoft.rpgcreator.editor.network.message.ManCenterMessage;
 import com.jukusoft.rpgcreator.editor.network.message.MessageReceiver;
-import com.jukusoft.rpgcreator.editor.network.message.NetworkReceiveEvents;
+import com.jukusoft.rpgcreator.editor.network.NetworkReceiveEvents;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
