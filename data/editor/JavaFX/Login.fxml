@@ -45,5 +45,10 @@
          </image>
       </ImageView>
       <Button fx:id="abortButton" alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="255.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #FF3300; -fx-border-color: #fff878;" text="Abort" textFill="WHITE" />
+      <Label fx:id="errorLabel" layoutX="14.0" layoutY="90.0" prefHeight="17.0" prefWidth="515.0" text="Error Label" textFill="RED">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

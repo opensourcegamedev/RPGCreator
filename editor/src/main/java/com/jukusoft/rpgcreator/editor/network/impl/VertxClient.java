@@ -143,8 +143,14 @@ public class VertxClient implements NetworkClient<ManCenterMessage> {
             throw new IllegalStateException("Socket is null, so vertx client cannot send message to server.");
         }
 
+        //get message string
+        String msgStr = msg.toJSON().toString();
+
+        //log message
+        System.err.println("send message: " + msgStr);
+
         //write json string of message to server
-        this.socket.write(msg.toJSON().toString());
+        this.socket.write(msgStr);
     }
 
     @Override

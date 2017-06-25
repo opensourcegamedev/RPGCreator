@@ -1,6 +1,8 @@
 package com.jukusoft.rpgcreator.editor.network.impl;
 
 import com.jukusoft.rpgcreator.editor.network.ManCenterClient;
+import com.jukusoft.rpgcreator.editor.network.message.NetworkReceiveEvents;
+import com.jukusoft.rpgcreator.editor.network.message.factory.LoginMessageFactory;
 import com.jukusoft.rpgcreator.editor.network.message.handler.DistributedMessageHandler;
 import com.jukusoft.rpgcreator.engine.network.AsyncResult;
 import com.jukusoft.rpgcreator.engine.network.Handler;
@@ -28,7 +30,17 @@ public class DefaultManCenterClient extends VertxClient implements ManCenterClie
             throw new IllegalStateException("client isnt connected to ManCenter server, so client cannot login.");
         }
 
+        if (distributedMessageHandler.existsHandler(NetworkReceiveEvents.LOGIN)) {
+            distributedMessageHandler.removeHandler(NetworkReceiveEvents.LOGIN);
+        }
+
+        //register ack message handler
+        distributedMessageHandler.addHandler(NetworkReceiveEvents.LOGIN, (client, message) -> {
+            //TODO: parse message
+        });
+
         //send login message
+        this.write(LoginMessageFactory.createLoginMessage(user, password));
     }
 
     @Override

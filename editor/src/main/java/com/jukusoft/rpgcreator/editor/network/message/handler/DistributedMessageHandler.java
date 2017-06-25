@@ -82,6 +82,10 @@ public class DistributedMessageHandler implements MessageReceiver<ManCenterMessa
         this.handlerMap.remove(event);
     }
 
+    public boolean existsHandler (String event) {
+        return this.handlerMap.get(event) != null;
+    }
+
     /**
     * check, if an event message can be handled without logged in user
      *
