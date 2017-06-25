@@ -65,7 +65,7 @@ public class VertxClient implements NetworkClient<ManCenterMessage> {
     }
 
     @Override
-    public void connect(String ip, int port, Handler<AsyncResult<String>> handler) throws Exception {
+    public void connect(String ip, int port, Handler<AsyncResult<String>> handler) {
         if (this.messageReceiver == null) {
             throw new IllegalStateException("You have to set an message receiver first.");
         }

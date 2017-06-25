@@ -16,7 +16,7 @@ public interface NetworkClient<T> {
      * @param port remote port of server
      * @param handler handler which will be executed, if operation was successful or failed
      */
-    public void connect (String ip, int port, Handler<AsyncResult<String>> handler) throws Exception;
+    public void connect (String ip, int port, Handler<AsyncResult<String>> handler);
 
     /**
      * set message receiver

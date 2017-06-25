@@ -22,8 +22,9 @@ public interface ManCenterClient {
      *
      * @param user username to authentificate
      * @param password password
+     * @param handler handler which will be executed, if operation was executed
     */
-    public boolean login (String user, String password);
+    public void login (String user, String password, Handler<AsyncResult<String>> handler);
 
     /**
     * disconnect from management server
