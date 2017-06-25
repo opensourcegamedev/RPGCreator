@@ -128,6 +128,27 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
         this.data = data;
     }
 
+    public boolean isAckMessage () {
+        return this.ackMessage;
+    }
+
+    public void setAckMessage (boolean ackMessage) {
+        this.ackMessage = ackMessage;
+    }
+
+    public void setAckMessage (UUID uuid) {
+        this.ackMessage = true;
+        this.uuid = uuid;
+    }
+
+    public UUID getUUID () {
+        if (!isAckMessage()) {
+            throw new IllegalStateException("this message isnt an acknowledged message.");
+        }
+
+        return this.uuid;
+    }
+
     @Override
     public JSONObject toJSON() {
         //create new json object

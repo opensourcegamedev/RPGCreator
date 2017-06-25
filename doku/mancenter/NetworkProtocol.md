@@ -12,6 +12,12 @@ if server sended this message to client, this attribute contains engine version 
 Version String is descriped like in [Wikipedia (german)](https://de.wikipedia.org/wiki/Versionsnummer).\
 This means: **Major Version.Minor Version.Revision-Build**\
 
+## Message Acknowledged
+
+Sometimes it is neccessary to get an direct answer of an specific network package.\
+For this use case RPG Creator Engine supports **acknowledged messages**.\
+The protocol will be extended with the keys **ack_message** (true) and **msg_uuid** (contains the current message unique id).\
+
 ## Custom Messages
 
 Custom messages have to extends **ManCenterMessage** and have to override **afterLoad()** method to convert plain data json string to their complex object structure.
