@@ -2,6 +2,9 @@ package com.jukusoft.rpgcreator.editor.network.impl;
 
 import com.jukusoft.rpgcreator.editor.network.message.ManCenterMessage;
 import com.jukusoft.rpgcreator.editor.network.message.MessageReceiver;
+import com.jukusoft.rpgcreator.engine.network.AsyncResult;
+import com.jukusoft.rpgcreator.engine.network.Handler;
+import com.jukusoft.rpgcreator.engine.network.impl.WritableAsyncResult;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.net.NetClient;
@@ -62,7 +65,7 @@ public class VertxClient implements NetworkClient<ManCenterMessage> {
     }
 
     @Override
-    public void connect(String ip, int port) throws Exception {
+    public void connect(String ip, int port, Handler<AsyncResult<String>> handler) throws Exception {
         if (this.messageReceiver == null) {
             throw new IllegalStateException("You have to set an message receiver first.");
         }
@@ -84,8 +87,14 @@ public class VertxClient implements NetworkClient<ManCenterMessage> {
 
                 //set flag
                 connected.set(true);
+
+                //execute handler
+                handler.handle(new WritableAsyncResult<String>("Connected!", true));
             } else {
                 System.out.println("Failed to connect: " + res.cause().getMessage());
+
+                //handle exception
+                handler.handle(new WritableAsyncResult<String>(res.cause()));
             }
         });
     }

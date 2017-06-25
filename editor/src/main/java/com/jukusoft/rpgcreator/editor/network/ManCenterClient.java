@@ -1,5 +1,8 @@
 package com.jukusoft.rpgcreator.editor.network;
 
+import com.jukusoft.rpgcreator.engine.network.AsyncResult;
+import com.jukusoft.rpgcreator.engine.network.Handler;
+
 /**
  * Created by Justin on 31.05.2017.
  */
@@ -10,8 +13,9 @@ public interface ManCenterClient {
      *
      * @param ip ip of management server
      * @param port port of server
+     * @param handler handler which will be executed, if operation was executed
     */
-    public boolean connect (String ip, int port);
+    public void connect (String ip, int port, Handler<AsyncResult<String>> handler);
 
     /**
     * try to login user
