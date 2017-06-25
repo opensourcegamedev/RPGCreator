@@ -5,6 +5,8 @@ import com.jukusoft.rpgcreator.engine.json.JSONLoadable;
 import com.jukusoft.rpgcreator.engine.json.JSONSerializable;
 import org.json.JSONObject;
 
+import java.util.UUID;
+
 /**
  * Created by Justin on 25.06.2017.
  */
@@ -16,12 +18,17 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
     protected static final String KEY_EVENT = "event";
     protected static final String KEY_DATA = "data";
     protected static final String KEY_ENGINE_VERSION = "engine_version";
+    protected static final String KEY_ACK = "ack_message";
+    protected static final String KEY_UUID = "msg_uuid";
 
     /**
     * network data to send
     */
     protected String event = "";
     protected String data = "";
+
+    protected boolean ackMessage = false;
+    protected UUID uuid = null;
 
     /**
     * remote version of engine,
@@ -38,6 +45,9 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
     public ManCenterMessage (String event) {
         //only lowercase events are allowed
         this.event = event.trim().toLowerCase();
+
+        //generate new unique id for message
+        this.uuid = UUID.randomUUID();
     }
 
     /**
@@ -60,6 +70,11 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
 
         if (json.isNull(KEY_ENGINE_VERSION)) {
             throw new IllegalArgumentException("invalide json string, engine_version is null.");
+        }
+
+        if (!json.isNull(KEY_ACK) && !json.isNull(KEY_UUID)) {
+            this.ackMessage = true;
+            this.uuid = UUID.fromString(json.getString(KEY_UUID));
         }
 
         //get data
@@ -121,6 +136,11 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
         //put data
         json.put(KEY_EVENT, this.getEvent());
         json.put(KEY_DATA, this.getData());
+
+        if (this.ackMessage) {
+            json.put(KEY_ACK, this.ackMessage);
+            json.put(KEY_UUID, this.uuid.toString());
+        }
 
         //put version of RPG Creator Engine
         json.put(KEY_ENGINE_VERSION, Engine.getVersionString());
