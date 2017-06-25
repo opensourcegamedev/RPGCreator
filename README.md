@@ -1,6 +1,9 @@
 # RPGCreator
 An simple 2D RPG Creator like "RPG Maker" series for Java to make multiplayer games.
 
+## Wiki
+You can found wiki here: https://opensourcegamedev.github.io/RPGCreator/
+
 ## Credits
 
 ### Project Management
