@@ -1,6 +1,7 @@
 package com.jukusoft.rpgcreator.editor.javafx.controller;
 
 import com.jukusoft.rpgcreator.editor.javafx.CreateProjectDialog;
+import com.jukusoft.rpgcreator.editor.javafx.LoginDialog;
 import com.jukusoft.rpgcreator.editor.network.ManCenterClient;
 import com.jukusoft.rpgcreator.editor.network.impl.DefaultManCenterClient;
 import com.jukusoft.rpgcreator.engine.javafx.FXMLController;
@@ -65,6 +66,8 @@ public class CreateProjectProgressDialogController implements FXMLController, In
     @FXML
     protected Stage stage;
 
+    protected File projectRootPath = null;
+
     public CreateProjectProgressDialogController (String title, String path, String ip, int port, boolean includeAssets) {
         this.title = title;
         this.path = path;
@@ -125,7 +128,7 @@ public class CreateProjectProgressDialogController implements FXMLController, In
         //create project directory
         System.out.println("Create project directory: " + path);
 
-        File projectRootPath = new File(this.path);
+        this.projectRootPath = new File(this.path);
 
         if (projectRootPath.exists()) {
             //set progressbar color to red, show back button and set state text
@@ -172,6 +175,28 @@ public class CreateProjectProgressDialogController implements FXMLController, In
     private void runAfterConnect () {
         //try to login
         incState(35);
+
+        Platform.runLater(() -> {
+            //open login dialog
+            LoginDialog loginDialog = new LoginDialog(this.stage, this.client, res -> {
+                if (!res.succeeded()) {
+                    //remove project directory
+                    projectRootPath.delete();
+
+                    //set progressbar color to red, show back button and set state text
+                    setFailedState("Failed! Couldnt connect to server!");
+
+                    return;
+                }
+
+                //execute next operations in new thread to avoid blocking vertx.io queue
+                new Thread(this::runAfterLogin).start();
+            });
+        });
+    }
+
+    private void runAfterLogin () {
+        //
     }
 
     protected void updateState (int percent, int state) {
