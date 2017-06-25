@@ -73,4 +73,15 @@ public class FileUtils {
         Files.write(Paths.get(path), content.getBytes(encoding), StandardOpenOption.CREATE);
     }
 
+    /**
+    * check, if an directory is empty
+     *
+     * @param dir directory
+     *
+     * @return true, if directory is empty
+    */
+    public static boolean isDirEmpty (File dir) {
+        return dir.list().length == 0;
+    }
+
 }
