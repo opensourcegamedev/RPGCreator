@@ -178,7 +178,7 @@ public class CreateProjectProgressDialogController implements FXMLController, In
 
         Platform.runLater(() -> {
             //open login dialog
-            LoginDialog loginDialog = new LoginDialog(this.stage, this.client, res -> {
+            LoginDialog loginDialog = new LoginDialog(this.stage, this.ip, this.port, this.client, res -> {
                 if (!res.succeeded()) {
                     //remove project directory
                     projectRootPath.delete();
@@ -197,6 +197,8 @@ public class CreateProjectProgressDialogController implements FXMLController, In
 
     private void runAfterLogin () {
         //
+
+
     }
 
     protected void updateState (int percent, int state) {

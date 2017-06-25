@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -36,9 +37,20 @@ public class LoginController implements FXMLController, Initializable {
     @FXML
     protected Button abortButton;
 
-    public LoginController (ManCenterClient client, Handler<AsyncResult<ManCenterClient>> handler) {
+    @FXML
+    protected Label serverIPLabel;
+
+    @FXML
+    protected Label serverPortLabel;
+
+    protected final String ip;
+    protected final int port;
+
+    public LoginController (ManCenterClient client, Handler<AsyncResult<ManCenterClient>> handler, String ip, int port) {
         this.client = client;
         this.handler = handler;
+        this.ip = ip;
+        this.port = port;
 
         if (this.client == null) {
             throw new NullPointerException("client cannot be null.");
@@ -51,7 +63,9 @@ public class LoginController implements FXMLController, Initializable {
 
     @Override
     public void init(Stage stage, Scene scene, Pane pane) {
-        //
+        //set server address
+        this.serverIPLabel.setText("Server IP: " + this.ip);
+        this.serverPortLabel.setText("Port: " + this.port);
     }
 
     @Override
