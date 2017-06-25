@@ -146,6 +146,9 @@ public class CreateProjectDialogController implements FXMLController, Initializa
 
         stage.hide();
 
+        //close window
+        stage.close();
+
         System.out.println("open create project progress window.");
         CreateProjectProgressDialog dialog = new CreateProjectProgressDialog(title, path, ip, port, includeAssets);
 
@@ -158,6 +161,11 @@ public class CreateProjectDialogController implements FXMLController, Initializa
         if (!projectPathTextField.getText().equals(text)) {
             projectPathTextField.setText(getBasePath() + "/" + projectTitleTextField.getText());
         }
+    }
+
+    @Override
+    public void run() {
+        //
     }
 
 }

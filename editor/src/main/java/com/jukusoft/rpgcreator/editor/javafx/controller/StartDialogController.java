@@ -66,4 +66,8 @@ public class StartDialogController implements FXMLController, Initializable {
         //
     }
 
+    @Override
+    public void run() {
+        //
+    }
 }
