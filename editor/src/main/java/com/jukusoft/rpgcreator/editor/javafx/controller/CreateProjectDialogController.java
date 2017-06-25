@@ -2,6 +2,7 @@ package com.jukusoft.rpgcreator.editor.javafx.controller;
 
 import com.jukusoft.rpgcreator.editor.javafx.CreateProjectProgressDialog;
 import com.jukusoft.rpgcreator.engine.javafx.FXMLController;
+import com.jukusoft.rpgcreator.engine.utils.FileUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -137,11 +138,18 @@ public class CreateProjectDialogController implements FXMLController, Initializa
 
         boolean includeAssets = this.includeAssetsCheckBox.isSelected();
 
+        //check, if directory already exists
         if (new File(path).exists()) {
-            //path already exists
-            this.projectPathTextField.setStyle(CSS_FAILED_STYLE);
+            //check, if directory is empty
+            if (FileUtils.isDirEmpty(new File(path))) {
+                //delete directory
+                new File(path).delete();
+            } else {
+                //path already exists
+                this.projectPathTextField.setStyle(CSS_FAILED_STYLE);
 
-            return;
+                return;
+            }
         }
 
         stage.hide();
@@ -151,8 +159,6 @@ public class CreateProjectDialogController implements FXMLController, Initializa
 
         System.out.println("open create project progress window.");
         CreateProjectProgressDialog dialog = new CreateProjectProgressDialog(title, path, ip, port, includeAssets);
-
-        //TODO: open new window
     }
 
     protected void generateAndSetProjectPath() {

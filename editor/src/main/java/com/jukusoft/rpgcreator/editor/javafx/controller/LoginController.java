@@ -1,5 +1,6 @@
 package com.jukusoft.rpgcreator.editor.javafx.controller;
 
+import com.jukusoft.rpgcreator.editor.javafx.CreateProjectDialog;
 import com.jukusoft.rpgcreator.editor.network.ManCenterClient;
 import com.jukusoft.rpgcreator.engine.javafx.FXMLController;
 import com.jukusoft.rpgcreator.engine.network.AsyncResult;
@@ -66,6 +67,15 @@ public class LoginController implements FXMLController, Initializable {
         //set server address
         this.serverIPLabel.setText("Server IP: " + this.ip);
         this.serverPortLabel.setText("Port: " + this.port);
+
+        this.abortButton.setOnAction(event -> {
+            //hide and close current window
+            stage.hide();
+            stage.close();
+
+            //open create project dialog
+            CreateProjectDialog dialog = new CreateProjectDialog();
+        });
     }
 
     @Override
