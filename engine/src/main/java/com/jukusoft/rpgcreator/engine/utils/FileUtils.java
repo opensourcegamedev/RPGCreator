@@ -81,6 +81,10 @@ public class FileUtils {
      * @return true, if directory is empty
     */
     public static boolean isDirEmpty (File dir) {
+        if (!dir.isDirectory()) {
+            throw new IllegalArgumentException("dir isnt an directory: " + dir.getAbsolutePath());
+        }
+
         return dir.list().length == 0;
     }
 
