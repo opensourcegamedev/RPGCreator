@@ -15,7 +15,7 @@ public class DefaultManCenterClient extends VertxClient implements ManCenterClie
             throw new IllegalStateException("client isnt connected to ManCenter server, so client cannot login.");
         }
 
-        //
+        //send login message
     }
 
 }

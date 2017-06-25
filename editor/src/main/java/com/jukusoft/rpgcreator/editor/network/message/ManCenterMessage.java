@@ -69,13 +69,13 @@ public class ManCenterMessage implements JSONSerializable, JSONLoadable {
         //get engine version
         this.remoteVersion = json.getString(KEY_ENGINE_VERSION);
 
-        this.afterLoad();
+        this.afterLoad(this.data);
     }
 
     /**
     * this method can be overriden to add logik to load complex objects
     */
-    protected void afterLoad () {
+    protected void afterLoad (String data) {
         //convert plain data to correct data object
     }
 
