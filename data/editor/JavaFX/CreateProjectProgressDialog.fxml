@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="214.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
@@ -19,7 +18,12 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <ProgressBar layoutX="12.0" layoutY="85.0" prefHeight="30.0" prefWidth="376.0" progress="0.0" />
-      <Label alignment="CENTER" layoutX="12.0" layoutY="127.0" prefHeight="17.0" prefWidth="376.0" text="1% - Connect to server..." />
+      <ProgressBar fx:id="progressBar" layoutX="12.0" layoutY="85.0" prefHeight="30.0" prefWidth="376.0" progress="0.0" />
+      <Label fx:id="stateLabel" alignment="CENTER" layoutX="12.0" layoutY="127.0" prefHeight="17.0" prefWidth="376.0" text="1% - Connect to server..." />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="144.0" mnemonicParsing="false" style="-fx-background-color: #FF3300; -fx-border-color: #fff878;" text="Back" textFill="#fff878">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

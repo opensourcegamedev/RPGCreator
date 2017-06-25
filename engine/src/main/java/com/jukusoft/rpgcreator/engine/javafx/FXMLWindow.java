@@ -57,6 +57,9 @@ public class FXMLWindow {
         //initialize controller
         if (controller != null) {
             controller.init(stage, scene, rootPane);
+
+            //run controller logic in new thread
+            new Thread(controller::run).start();
         }
 
         //show window

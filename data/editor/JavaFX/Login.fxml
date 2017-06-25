@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="293.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="149.0" layoutY="146.0">
@@ -24,7 +23,7 @@
             <Label text="Password:" GridPane.rowIndex="1" />
             <TextField fx:id="usernameTextField" promptText="Username" GridPane.columnIndex="1" />
             <PasswordField fx:id="passwordTextField" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="loginButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #98aeec; -fx-border-color: #1b52f1;" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="loginButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #00EE00; -fx-border-color: #1b52f1;" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Label layoutX="14.0" layoutY="14.0" text="Login">
@@ -32,12 +31,13 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Label layoutX="185.0" layoutY="32.0" text="Server IP: -" />
-      <Label layoutX="185.0" layoutY="49.0" text="Port: -" />
+      <Label fx:id="serverIPLabel" layoutX="185.0" layoutY="32.0" text="Server IP: -" />
+      <Label fx:id="serverPortLabel" layoutX="185.0" layoutY="49.0" text="Port: -" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="335.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../common/logo/icon_transparency_border.png" />
          </image>
       </ImageView>
+      <Button fx:id="abortButton" alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="255.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #FF3300; -fx-border-color: #fff878;" text="Abort" textFill="WHITE" />
    </children>
 </AnchorPane>

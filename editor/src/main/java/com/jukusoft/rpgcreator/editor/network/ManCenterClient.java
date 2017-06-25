@@ -10,10 +10,16 @@ public interface ManCenterClient {
      *
      * @param ip ip of management server
      * @param port port of server
+    */
+    public boolean connect (String ip, int port);
+
+    /**
+    * try to login user
+     *
      * @param user username to authentificate
      * @param password password
     */
-    public boolean connect (String ip, int port, String user, String password);
+    public boolean login (String user, String password);
 
     /**
     * disconnect from management server

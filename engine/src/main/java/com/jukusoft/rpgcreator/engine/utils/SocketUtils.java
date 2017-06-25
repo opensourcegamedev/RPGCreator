@@ -30,24 +30,30 @@ public class SocketUtils {
      * @param port number of port to check
      * @param timeout timeout in seconds
     */
-    public static boolean checkIfRemotePortAvailable (String hostname, int port, int timeout) throws IOException {
-        Socket s = new Socket();
-        s.setReuseAddress(true);
-        SocketAddress sa = new InetSocketAddress(hostname, port);
-
+    public static boolean checkIfRemotePortAvailable (String hostname, int port, int timeout) {
         try {
-            s.connect(sa, timeout * 1000);
+            Socket s = new Socket();
+            s.setReuseAddress(true);
+            SocketAddress sa = new InetSocketAddress(hostname, port);
+
+            try {
+                s.connect(sa, timeout * 1000);
+            } catch (IOException e) {
+                s.close();
+                return false;
+            }
+
+            if (s.isConnected()) {
+                s.close();
+
+                return true;
+            } else {
+                s.close();
+                return false;
+            }
         } catch (IOException e) {
-            s.close();
-            return false;
-        }
+            e.printStackTrace();
 
-        if (s.isConnected()) {
-            s.close();
-
-            return true;
-        } else {
-            s.close();
             return false;
         }
     }
