@@ -14,6 +14,12 @@ dependencies {
 
     compile project(":engine")
 
+    //json
+    compile "org.json:json:$jsonVersion"
+
+    //vertx.io
+    compile "io.vertx:vertx-core:$vertxVersion"
+
     //libGDX
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
 
